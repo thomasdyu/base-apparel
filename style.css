@@ -8,11 +8,231 @@
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 16px;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-header {
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1440px;
+  max-height: 810px;
+  background: url(./images/bg-pattern-desktop.svg) no-repeat center;
+  background-size: cover;
+  margin: 0 2rem;
+  -webkit-box-shadow: 0 10px 15px rgba(206, 151, 151, 0.2);
+          box-shadow: 0 10px 15px rgba(206, 151, 151, 0.2);
+}
+
+.col-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  width: 60%;
+  color: #ce9797;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+.col-left-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.logo-container {
+  margin-bottom: 8rem;
+}
+
+.logo-container img {
+  cursor: pointer;
+}
+
+.col-left__heading {
+  font-size: 4rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1rem;
+  margin-bottom: 2rem;
+}
+
+.col-left__heading span {
+  display: inline-block;
+  font-weight: 600;
+  color: #413a3a;
+}
+
+.col-left__text {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.input-block {
   width: 100%;
-  height: 100px;
-  background: linear-gradient(135deg, white 0%, #fff5f5);
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+}
+
+.errorMsg {
+  display: none;
+  color: #f96262;
+  font-size: 0.9rem;
+  margin: 1rem 0 0 2rem;
+}
+
+.input {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid #ce9797;
+  border-radius: 25px;
+}
+
+.input:focus {
+  outline-width: 0;
+}
+
+.input::-webkit-input-placeholder {
+  color: #ce9797;
+  opacity: 0.6;
+  padding-left: 1.8rem;
+}
+
+.input:-ms-input-placeholder {
+  color: #ce9797;
+  opacity: 0.6;
+  padding-left: 1.8rem;
+}
+
+.input::-ms-input-placeholder {
+  color: #ce9797;
+  opacity: 0.6;
+  padding-left: 1.8rem;
+}
+
+.input::placeholder {
+  color: #ce9797;
+  opacity: 0.6;
+  padding-left: 1.8rem;
+}
+
+.input[type='email'] {
+  color: #ce9797;
+  font-size: 1rem;
+  padding: 0 2rem;
+}
+
+.btn {
+  width: 85px;
+  height: 100%;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #f8bfbf, #ee8c8c);
+  -webkit-box-shadow: 0 10px 15px rgba(206, 151, 151, 0.4);
+          box-shadow: 0 10px 15px rgba(206, 151, 151, 0.4);
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0px;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn:focus {
+  outline-width: 0;
+}
+
+.btn:active {
+  -webkit-transform: translateX(2px);
+          transform: translateX(2px);
+  -webkit-box-shadow: 0 5px 10px rgba(206, 151, 151, 0.8);
+          box-shadow: 0 5px 10px rgba(206, 151, 151, 0.8);
+}
+
+.error-icon {
+  display: none;
+  position: absolute;
+  top: 12px;
+  right: 100px;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  margin-left: 2rem;
+}
+
+.col-right {
+  width: 40%;
+  background: url("./images/hero-desktop.jpg") no-repeat center;
+  background-size: cover;
+}
+
+@media only screen and (max-width: 1178px) {
+  .logo-container img {
+    width: 8rem;
+  }
+  .col-left__heading {
+    font-size: 3rem;
+  }
+  .col-left-container {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 940px) {
+  .col-left__heading {
+    font-size: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .col-right {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 100%;
+    height: 400px;
+  }
+  .col-left {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
 }
 /*# sourceMappingURL=style.css.map */
