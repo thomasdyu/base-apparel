@@ -21,13 +21,11 @@ body {
 }
 
 .container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas: 'logo col-right' 'col-left col-right';
-  width: 1440px;
-  max-height: 810px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1440px;
+  max-height: 800px;
   background: url(./images/bg-pattern-desktop.svg) no-repeat center;
   background-size: cover;
   margin: 0 2rem;
@@ -35,23 +33,22 @@ body {
           box-shadow: 0 10px 15px rgba(206, 151, 151, 0.2);
 }
 
+.logo-container-mobile {
+  display: none;
+}
+
+.col-left {
+  width: 60%;
+  color: #ce9797;
+  padding: 4rem 0;
+}
+
 .logo-container {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: logo;
   margin: 6rem 6.7rem;
 }
 
 .logo-container img {
   cursor: pointer;
-}
-
-.col-left {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: col-left;
-  color: #ce9797;
-  padding: 4rem 0;
 }
 
 .col-left-container {
@@ -178,10 +175,7 @@ body {
 }
 
 .col-right {
-  grid-area: 'col-right';
-  -ms-grid-row: 1;
-      grid-row-start: 1;
-  grid-row-end: 3;
+  width: 40%;
   background: url("./images/hero-desktop.jpg") no-repeat center;
   background-size: cover;
 }
@@ -199,40 +193,79 @@ body {
 }
 
 @media only screen and (max-width: 940px) {
+  body {
+    height: auto;
+  }
   .container {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-    -ms-grid-rows: 100px 2fr 2fr;
-        grid-template-rows: 100px 2fr 2fr;
-        grid-template-areas: 'logo' 'col-right' 'col-left';
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-height: none;
+    margin: 0;
+  }
+  .logo-container-mobile {
+    display: block;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    height: 80px;
+    margin-left: 2rem;
+  }
+  .logo-container-mobile img {
+    width: 110px;
+    height: auto;
+    cursor: pointer;
+  }
+  .logo-inner-container-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    max-height: unset;
+    height: 100%;
   }
   .logo-container {
-    width: 80%;
-    margin: 2rem auto;
-  }
-  .logo-container img {
-    width: 120px;
+    display: none;
   }
   .col-right {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 100%;
+    background-image: url("./images/hero-mobile.jpg");
     background-size: cover;
-    background-position: center top;
-    height: 400px;
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 300px;
   }
   .col-left {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
     width: 80%;
     margin: 2rem auto;
+    padding-top: 2rem;
   }
   .col-left-container {
     text-align: center;
   }
   .col-left__heading {
     font-size: 2.6rem;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .col-left {
+    width: 90%;
+    margin: 2rem auto;
+  }
+  .col-left-container {
+    margin: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */
